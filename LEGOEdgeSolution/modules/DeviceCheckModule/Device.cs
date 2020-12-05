@@ -51,7 +51,6 @@ namespace DeviceCheckModule
                     _logger.LogError(ex, $"[ERROR] Unexpected Exception {ex.Message}");
                 }
             }
-
         }
         private Task<MethodResponse> ResetMethod(MethodRequest request, object userContext)
         {

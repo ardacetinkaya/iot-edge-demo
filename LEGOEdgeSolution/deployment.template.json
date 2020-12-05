@@ -130,6 +130,53 @@
                 }
               }
             }
+          },
+          "CameraModule": {
+            "version": "1.0",
+            "type": "docker",
+            "status": "running",
+            "restartPolicy": "always",
+            "env": {
+              "VIDEO_PATH": {
+                "value": "0"
+              },
+              "IMAGE_PROCESSING_ENDPOINT": {
+                "value": ""
+              },
+              "RESIZE_WIDTH": {
+                "value": "256"
+              },
+              "RESIZE_HEIGHT": {
+                "value": "256"
+              },
+              "SHOW_VIDEO": {
+                "value": "True"
+              }
+            },
+            "settings": {
+              "image": "${MODULES.CameraModule}",
+              "createOptions": {
+                "HostConfig": {
+                  "PortBindings": {
+                    "5012/tcp": [
+                      {
+                        "HostPort": "5012"
+                      }
+                    ]
+                  },
+                  "Binds": [
+                    "/dev/video0:/dev/video0"
+                  ],
+                  "Devices": [
+                    {
+                      "PathOnHost": "/dev/video0",
+                      "PathInContainer": "/dev/video0",
+                      "CgroupPermissions": "mrw"
+                    }
+                  ]
+                }
+              }
+            }
           }
         }
       }
@@ -138,7 +185,8 @@
       "properties.desired": {
         "schemaVersion": "1.0",
         "routes": {
-          "DeviceCheckModuleToIoTHub": "FROM /messages/modules/DeviceCheckModule/outputs/* INTO $upstream"
+          "DeviceCheckModuleToIoTHub": "FROM /messages/modules/DeviceCheckModule/outputs/* INTO $upstream",
+          "CameraModuleToIoTHub": "FROM /messages/modules/CameraModule/outputs/* INTO $upstream"
         },
         "storeAndForwardConfiguration": {
           "timeToLiveSecs": 7200
