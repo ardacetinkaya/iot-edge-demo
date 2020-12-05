@@ -66,6 +66,16 @@
               "image": "${MODULES.DeviceCheckModule.debug}",
               "createOptions": {}
             }
+          },
+          "CameraModule": {
+            "version": "1.0",
+            "type": "docker",
+            "status": "running",
+            "restartPolicy": "always",
+            "settings": {
+              "image": "mcr.microsoft.com/azureiotedge/cameracapturee:0.2.7",
+              "createOptions": {}
+            }
           }
         }
       }
@@ -74,7 +84,8 @@
       "properties.desired": {
         "schemaVersion": "1.0",
         "routes": {
-          "DeviceCheckModuleToIoTHub": "FROM /messages/modules/DeviceCheckModule/outputs/* INTO $upstream"
+          "DeviceCheckModuleToIoTHub": "FROM /messages/modules/DeviceCheckModule/outputs/* INTO $upstream",
+          "CameraModuleToIoTHub": "FROM /messages/modules/CameraModule/outputs/* INTO $upstream"
         },
         "storeAndForwardConfiguration": {
           "timeToLiveSecs": 7200

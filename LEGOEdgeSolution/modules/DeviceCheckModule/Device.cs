@@ -12,7 +12,6 @@ namespace DeviceCheckModule
     using Microsoft.Azure.Devices.Client;
     using Microsoft.Azure.Devices.Client.Transport.Mqtt;
     using Microsoft.Extensions.Logging;
-    using Unosquare.RaspberryIO;
 
     class IoTDevice
     {
@@ -20,7 +19,9 @@ namespace DeviceCheckModule
         public async static Task<IoTDevice> InitDevice(ModuleClient client, ILoggerFactory loggerFactory)
         {
 
+
             var logger = loggerFactory.CreateLogger("DeviceLogger");
+            
             var device = new IoTDevice(client, logger);
 
             logger.LogInformation("IoT Hub module client initialized.");
@@ -66,15 +67,8 @@ namespace DeviceCheckModule
             try
             {
                 _logger.LogInformation("Received takephoto command via direct method invocation");
-                var pictureBytes = await Pi.Camera.CaptureImageJpegAsync(640, 480);
-                var targetPath = "/home/pi/images/picture.jpg";
-                if (File.Exists(targetPath))
-                    File.Delete(targetPath);
 
-                File.WriteAllBytes(targetPath, pictureBytes);
-                _logger.LogInformation($"Took picture -- Byte count: {pictureBytes.Length}");
-
-
+                await Task.Delay(TimeSpan.FromSeconds(2));
                 return response;
             }
             catch (System.Exception ex)

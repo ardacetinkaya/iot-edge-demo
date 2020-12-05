@@ -31,20 +31,24 @@
               "createOptions": {
                 "HostConfig": {
                   "Binds": [
-                    "/home/pi/images/:/home/pi/images/",
-                    "/opt/vc/lib:/opt/vc/lib",
-                    "/opt/vc/bin:/opt/vc/bin"
+                    "/home/pi/images/:/home/pi/images/"
                   ],
                   "PortBindings": {
-                    "5671/tcp": [{
-                      "HostPort": "5671"
-                    }],
-                    "8883/tcp": [{
-                      "HostPort": "8883"
-                    }],
-                    "443/tcp": [{
-                      "HostPort": "443"
-                    }]
+                    "5671/tcp": [
+                      {
+                        "HostPort": "5671"
+                      }
+                    ],
+                    "8883/tcp": [
+                      {
+                        "HostPort": "8883"
+                      }
+                    ],
+                    "443/tcp": [
+                      {
+                        "HostPort": "443"
+                      }
+                    ]
                   }
                 }
               }
@@ -64,20 +68,24 @@
               "createOptions": {
                 "HostConfig": {
                   "Binds": [
-                    "/home/pi/images/:/home/pi/images/",
-                    "/opt/vc/lib:/opt/vc/lib",
-                    "/opt/vc/bin:/opt/vc/bin"
+                    "/home/pi/images/:/home/pi/images/"
                   ],
                   "PortBindings": {
-                    "5671/tcp": [{
-                      "HostPort": "5671"
-                    }],
-                    "8883/tcp": [{
-                      "HostPort": "8883"
-                    }],
-                    "443/tcp": [{
-                      "HostPort": "443"
-                    }]
+                    "5671/tcp": [
+                      {
+                        "HostPort": "5671"
+                      }
+                    ],
+                    "8883/tcp": [
+                      {
+                        "HostPort": "8883"
+                      }
+                    ],
+                    "443/tcp": [
+                      {
+                        "HostPort": "443"
+                      }
+                    ]
                   }
                 }
               }
@@ -100,20 +108,24 @@
               "createOptions": {
                 "HostConfig": {
                   "Binds": [
-                    "/home/pi/images/:/home/pi/images/",
-                    "/opt/vc/lib:/opt/vc/lib",
-                    "/opt/vc/bin:/opt/vc/bin"
+                    "/home/pi/images/:/home/pi/images/"
                   ],
                   "PortBindings": {
-                    "5671/tcp": [{
-                      "HostPort": "5671"
-                    }],
-                    "8883/tcp": [{
-                      "HostPort": "8883"
-                    }],
-                    "443/tcp": [{
-                      "HostPort": "443"
-                    }]
+                    "5671/tcp": [
+                      {
+                        "HostPort": "5671"
+                      }
+                    ],
+                    "8883/tcp": [
+                      {
+                        "HostPort": "8883"
+                      }
+                    ],
+                    "443/tcp": [
+                      {
+                        "HostPort": "443"
+                      }
+                    ]
                   }
                 }
               }

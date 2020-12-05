@@ -58,8 +58,8 @@ namespace DeviceCheckModule
             ModuleClient ioTHubModuleClient = await ModuleClient.CreateFromEnvironmentAsync(settings);
             await ioTHubModuleClient.OpenAsync();
 
-            var loggerFactory = new LoggerFactory();
-            loggerFactory.AddConsole();
+            var loggerFactory = LoggerFactory.Create(builder => builder.AddConsole());
+    
             await IoTDevice.InitDevice(ioTHubModuleClient, loggerFactory);
         }
     }
