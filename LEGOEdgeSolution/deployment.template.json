@@ -144,10 +144,10 @@
                 "value": ""
               },
               "RESIZE_WIDTH": {
-                "value": "256"
+                "value": "800"
               },
               "RESIZE_HEIGHT": {
-                "value": "256"
+                "value": "600"
               },
               "SHOW_VIDEO": {
                 "value": "True"
