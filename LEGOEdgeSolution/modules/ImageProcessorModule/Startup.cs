@@ -20,9 +20,6 @@ namespace ImageProcessorModule
         }
         public void Configure(IApplicationBuilder app)
         {
-
-            app.UseHttpsRedirection();
-
             app.UseAuthentication();
             app.UseRouting();
 

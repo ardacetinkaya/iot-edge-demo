@@ -32,7 +32,7 @@ namespace ImageProcessorModule
                   .ConfigureWebHostDefaults(builder =>
                   {
                       builder.UseStartup<Startup>();
-                      builder.UseUrls("http://localhost:5013/");
+                      builder.UseUrls("http://*:5013/");
                   });
 
         /// <summary>

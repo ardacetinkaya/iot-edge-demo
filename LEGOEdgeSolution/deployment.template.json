@@ -138,6 +138,9 @@
             "settings": {
               "image": "${MODULES.CameraModule}",
               "createOptions": {
+                "ExposedPorts":{
+                  "5012/tcp":{}
+                },
                 "HostConfig": {
                   "PortBindings": {
                     "5012/tcp": [{
