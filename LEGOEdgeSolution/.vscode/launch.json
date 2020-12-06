@@ -151,6 +151,44 @@
       "windows": {
         "program": "${workspaceFolder}\\modules\\CameraModule\\main.py"
       }
+    },
+    {
+      "name": "ImageProcessorModule Remote Debug (.NET Core)",
+      "type": "coreclr",
+      "request": "attach",
+      "processId": "${command:pickRemoteProcess}",
+      "pipeTransport": {
+        "pipeProgram": "docker",
+        "pipeArgs": [
+          "exec",
+          "-i",
+          "ImageProcessorModule",
+          "sh",
+          "-c"
+        ],
+        "debuggerPath": "~/vsdbg/vsdbg",
+        "pipeCwd": "${workspaceFolder}",
+        "quoteArgs": true
+      },
+      "sourceFileMap": {
+        "/app": "${workspaceFolder}/modules/ImageProcessorModule"
+      },
+      "justMyCode": true
+    },
+    {
+      "name": "ImageProcessorModule Local Debug (.NET Core)",
+      "type": "coreclr",
+      "request": "launch",
+      "program": "${workspaceRoot}/modules/ImageProcessorModule/bin/Debug/netcoreapp3.1/ImageProcessorModule.dll",
+      "args": [],
+      "cwd": "${workspaceRoot}/modules/ImageProcessorModule",
+      "internalConsoleOptions": "openOnSessionStart",
+      "stopAtEntry": false,
+      "console": "internalConsole",
+      "env": {
+        "EdgeHubConnectionString": "${config:azure-iot-edge.EdgeHubConnectionString}",
+        "EdgeModuleCACertificateFile": "${config:azure-iot-edge.EdgeModuleCACertificateFile}"
+      }
     }
   ]
 }

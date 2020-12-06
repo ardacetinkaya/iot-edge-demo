@@ -89,6 +89,16 @@
                 }
               }
             }
+          },
+          "ImageProcessorModule": {
+            "version": "1.0",
+            "type": "docker",
+            "status": "running",
+            "restartPolicy": "always",
+            "settings": {
+              "image": "${MODULES.ImageProcessorModule.debug}",
+              "createOptions": {}
+            }
           }
         }
       }
@@ -98,7 +108,8 @@
         "schemaVersion": "1.0",
         "routes": {
           "DeviceCheckModuleToIoTHub": "FROM /messages/modules/DeviceCheckModule/outputs/* INTO $upstream",
-          "CameraModuleToIoTHub": "FROM /messages/modules/CameraModule/outputs/* INTO $upstream"
+          "CameraModuleToIoTHub": "FROM /messages/modules/CameraModule/outputs/* INTO $upstream",
+          "ImageProcessorModuleToIoTHub": "FROM /messages/modules/ImageProcessorModule/outputs/* INTO $upstream"
         },
         "storeAndForwardConfiguration": {
           "timeToLiveSecs": 7200

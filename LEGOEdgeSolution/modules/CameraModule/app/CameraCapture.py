@@ -230,7 +230,7 @@ class CameraCapture(object):
                         self.displayFrame = cv2.imencode('.jpg', preprocessedFrame)[1].tobytes()
                 except Exception as e:
                     print("Could not display the video to a web browser.") 
-                    print('Excpetion -' + str(e))
+                    print('Exception -' + str(e))
                 if self.verbose:
                     if 'startDisplaying' in locals():
                         print("Time to display frame: " + self.__displayTimeDifferenceInMs(time.time(), startDisplaying))

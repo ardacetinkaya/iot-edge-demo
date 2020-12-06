@@ -34,21 +34,15 @@
                     "/home/pi/images/:/home/pi/images/"
                   ],
                   "PortBindings": {
-                    "5671/tcp": [
-                      {
-                        "HostPort": "5671"
-                      }
-                    ],
-                    "8883/tcp": [
-                      {
-                        "HostPort": "8883"
-                      }
-                    ],
-                    "443/tcp": [
-                      {
-                        "HostPort": "443"
-                      }
-                    ]
+                    "5671/tcp": [{
+                      "HostPort": "5671"
+                    }],
+                    "8883/tcp": [{
+                      "HostPort": "8883"
+                    }],
+                    "443/tcp": [{
+                      "HostPort": "443"
+                    }]
                   }
                 }
               }
@@ -71,21 +65,15 @@
                     "/home/pi/images/:/home/pi/images/"
                   ],
                   "PortBindings": {
-                    "5671/tcp": [
-                      {
-                        "HostPort": "5671"
-                      }
-                    ],
-                    "8883/tcp": [
-                      {
-                        "HostPort": "8883"
-                      }
-                    ],
-                    "443/tcp": [
-                      {
-                        "HostPort": "443"
-                      }
-                    ]
+                    "5671/tcp": [{
+                      "HostPort": "5671"
+                    }],
+                    "8883/tcp": [{
+                      "HostPort": "8883"
+                    }],
+                    "443/tcp": [{
+                      "HostPort": "443"
+                    }]
                   }
                 }
               }
@@ -111,21 +99,15 @@
                     "/home/pi/images/:/home/pi/images/"
                   ],
                   "PortBindings": {
-                    "5671/tcp": [
-                      {
-                        "HostPort": "5671"
-                      }
-                    ],
-                    "8883/tcp": [
-                      {
-                        "HostPort": "8883"
-                      }
-                    ],
-                    "443/tcp": [
-                      {
-                        "HostPort": "443"
-                      }
-                    ]
+                    "5671/tcp": [{
+                      "HostPort": "5671"
+                    }],
+                    "8883/tcp": [{
+                      "HostPort": "8883"
+                    }],
+                    "443/tcp": [{
+                      "HostPort": "443"
+                    }]
                   }
                 }
               }
@@ -158,22 +140,36 @@
               "createOptions": {
                 "HostConfig": {
                   "PortBindings": {
-                    "5012/tcp": [
-                      {
-                        "HostPort": "5012"
-                      }
-                    ]
+                    "5012/tcp": [{
+                      "HostPort": "5012"
+                    }]
                   },
                   "Binds": [
                     "/dev/video0:/dev/video0"
                   ],
-                  "Devices": [
-                    {
-                      "PathOnHost": "/dev/video0",
-                      "PathInContainer": "/dev/video0",
-                      "CgroupPermissions": "mrw"
-                    }
-                  ]
+                  "Devices": [{
+                    "PathOnHost": "/dev/video0",
+                    "PathInContainer": "/dev/video0",
+                    "CgroupPermissions": "mrw"
+                  }]
+                }
+              }
+            }
+          },
+          "ImageProcessorModule": {
+            "version": "1.0",
+            "type": "docker",
+            "status": "running",
+            "restartPolicy": "always",
+            "settings": {
+              "image": "${MODULES.ImageProcessorModule}",
+              "createOptions": {
+                "HostConfig": {
+                  "PortBindings": {
+                    "5013/tcp": [{
+                      "HostPort": "5013"
+                    }]
+                  }
                 }
               }
             }
@@ -186,7 +182,8 @@
         "schemaVersion": "1.0",
         "routes": {
           "DeviceCheckModuleToIoTHub": "FROM /messages/modules/DeviceCheckModule/outputs/* INTO $upstream",
-          "CameraModuleToIoTHub": "FROM /messages/modules/CameraModule/outputs/* INTO $upstream"
+          "CameraModuleToIoTHub": "FROM /messages/modules/CameraModule/outputs/* INTO $upstream",
+          "ImageProcessorModuleToIoTHub": "FROM /messages/modules/ImageProcessorModule/outputs/* INTO $upstream"
         },
         "storeAndForwardConfiguration": {
           "timeToLiveSecs": 7200
